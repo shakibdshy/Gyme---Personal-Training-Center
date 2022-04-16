@@ -28,7 +28,7 @@ a {
 }
 
 .bg-red {
-	background-color: #e63a34;
+  background-color: #e63a34;
 }
 
 .pt-60 {
@@ -82,7 +82,7 @@ a {
 }
 
 .bg-black-700 {
-	background-color: #202020;
+  background-color: #202020;
 }
 
 .section-title h3 {
@@ -175,4 +175,98 @@ a {
   .section-title-center h2 {
     width: 55%;
   }
+}
+
+.login-section {
+  padding: 130px 0;
+}
+
+.login-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 3px 5px 20px 0 rgba(0, 0, 0, 0.12);
+}
+
+.login-form .form-control {
+  padding: 20px 20px;
+  border: 2px solid #dfe8f1;
+  transition: all 0.3s ease-in-out;
+}
+
+.login-form .form-control:focus {
+  box-shadow: none;
+  border: 2px solid #e63a34;
+}
+
+.login-form .btn-gr-red {
+  display: block;
+  width: 100%;
+}
+
+.login-form .divider {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  color: #8e8e8e;
+}
+
+.login-form .divider hr {
+  flex: 1;
+  background: #8e8e8e;
+}
+
+.social-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.social-login .btn {
+  background: transparent;
+  border: 2px solid #dfe8f1;
+  color: #29282d;
+  font-size: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-login .btn.fb {
+  color: #1877f2;
+}
+
+.social-login .btn.github {
+  color: #6e5494;
+}
+
+.social-login .btn:is(:focus, :hover) {
+  box-shadow: none;
+  border: 2px solid #e63a34;
+}
+
+.social-login .btn.fb:is(:focus, :hover) {
+  box-shadow: none;
+  border: 2px solid #1877f2;
+}
+
+.social-login .btn.github:is(:focus, :hover) {
+  box-shadow: none;
+  border: 2px solid #6e5494;
+}
+
+.login-text {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.login-text a{
+  font-size: 18px;
+  font-family: "Teko", sans-serif;
+  font-weight: 600;
+  color: #e63a34;
+  margin-left: 5px;
 }
