@@ -1,0 +1,23 @@
+.error-area {
+  position: relative;
+  z-index: 1;
+}
+
+.error-area .error-thumb {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+}
+
+@media (max-width: 767px) {
+  .error-area .error-thumb {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .error-area {
+    height: 700px;
+  }
+}
