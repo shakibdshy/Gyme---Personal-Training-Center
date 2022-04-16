@@ -9,6 +9,7 @@ import Notfound from './Pages/Error/Notfound';
 import Checkout from './Pages/Checkout/Checkout';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
+import Footer from './Layout/Footer/Footer';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='*' element={<Notfound />} />
       </Routes>
+      <Footer />
     </>
   );
 }

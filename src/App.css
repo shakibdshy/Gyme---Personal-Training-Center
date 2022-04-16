@@ -81,6 +81,10 @@ a {
   box-shadow: none;
 }
 
+.bg-black-700 {
+	background-color: #202020;
+}
+
 .section-title h3 {
   font-size: 50px;
   line-height: 50px;
