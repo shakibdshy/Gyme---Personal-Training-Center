@@ -15,8 +15,24 @@ h6 {
   font-weight: 700;
 }
 
+h2 {
+  font-size: 50px;
+}
+
 a {
   text-decoration: none;
+}
+
+.white-color {
+  color: #fff;
+}
+
+.bg-red {
+	background-color: #e63a34;
+}
+
+.pt-60 {
+  padding-top: 60px;
 }
 
 .pb-130 {
@@ -74,4 +90,85 @@ a {
 
 .section-title h3 span {
   color: #e63a34;
+}
+
+.section-title-center {
+  position: relative;
+}
+.section-title-center h2 {
+  line-height: 55px;
+  font-weight: 600;
+  margin-top: -8px;
+  position: relative;
+  z-index: 5;
+  padding-top: 40px;
+}
+@media (min-width: 768px) {
+  .section-title-center h2 {
+    padding-left: 80px;
+    padding-top: 0;
+  }
+}
+.section-title-center hr {
+  position: relative;
+  width: 50px;
+  height: 4px;
+  margin: 0 auto;
+  z-index: 5;
+}
+@media (min-width: 768px) {
+  .section-title-center hr {
+    left: 0;
+    top: 4px;
+    margin: 0;
+  }
+}
+.section-title-center span {
+  font-size: 105px;
+  font-weight: 500;
+  line-height: 50px;
+  color: #fff;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #949090;
+  opacity: 0.1;
+  font-family: "Teko", sans-serif;
+  position: absolute;
+  top: 77%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  transform: translateY(-70%);
+  z-index: 1;
+}
+@media (min-width: 768px) {
+  .section-title-center span {
+    font-size: 250px;
+  }
+}
+@media (min-width: 992px) {
+  .section-title-center span {
+    font-size: 300px;
+  }
+}
+
+.section-title-center hr {
+  margin: 0 auto;
+}
+.section-title-center h2 {
+  padding-top: 40px;
+  padding-left: 0;
+  text-align: center;
+  margin: auto;
+}
+@media (min-width: 992px) {
+  .section-title-center h2 {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  .section-title-center h2 {
+    width: 55%;
+  }
 }
