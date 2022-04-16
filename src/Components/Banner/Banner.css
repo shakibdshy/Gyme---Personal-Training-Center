@@ -1,15 +1,23 @@
 .banner-section {
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: relative;
-    z-index: 1;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
 }
 
 .banner-content {
-  padding-top: 200px;
-  padding-bottom: 200px;
-  padding-right: 300px;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  padding-right: 0;
+}
+
+@media (min-width: 992px) {
+  .banner-content {
+    padding-top: 200px;
+    padding-bottom: 200px;
+    padding-right: 300px;
+  }
 }
 
 .banner-content span {
@@ -36,13 +44,27 @@
 .banner-content h2 {
   color: #fff;
   font-weight: 600;
-  font-size: 80px;
-  line-height: 85px;
+  font-size: 50px;
+  line-height: 55px;
   margin-bottom: 38px;
 }
 
 .banner-img {
-	position: absolute;
-	right: 200px;
-	bottom: 0;
+  display: none;
+  position: absolute;
+  right: 200px;
+  bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .banner-content h2 {
+    font-size: 80px;
+    line-height: 85px;
+  }
+}
+
+@media (min-width: 992px) {
+  .banner-img {
+    display: block;
+  }
 }

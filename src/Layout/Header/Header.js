@@ -7,7 +7,7 @@ import './Header.css';
 const Header = () => {
   return (
     <header className='header-area'>
-      <Navbar expand='md' bg="dark" variant="dark">
+      <Navbar expand='lg' bg="dark" variant="dark">
         <Container fluid>
           <Link className='navbar-brand' to='/'>
             <img src={logo} alt="" />
