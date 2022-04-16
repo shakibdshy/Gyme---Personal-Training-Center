@@ -1,0 +1,48 @@
+.banner-section {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+.banner-content {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  padding-right: 300px;
+}
+
+.banner-content span {
+  color: #fff;
+  font-size: 30px;
+  line-height: 30px;
+  margin-bottom: 46px;
+  display: inline-block;
+  padding-left: 70px;
+  position: relative;
+}
+
+.banner-content span::before {
+  content: "";
+  width: 50px;
+  height: 4px;
+  background: #e63a34;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.banner-content h2 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 80px;
+  line-height: 85px;
+  margin-bottom: 38px;
+}
+
+.banner-img {
+	position: absolute;
+	right: 200px;
+	bottom: 0;
+}

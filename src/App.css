@@ -32,7 +32,7 @@ a {
 }
 
 .btn {
-  padding: 20px 50px;
+  padding: 24px 50px;
   border-radius: 5px;
   font-size: 20px;
   line-height: 1;
@@ -43,7 +43,9 @@ a {
   z-index: 1;
   border: none;
   text-transform: uppercase;
-  /* font-family: 'Teko', sans-serif; */
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-weight: 700;
   transition: all 0.3s ease-in-out;
 }
