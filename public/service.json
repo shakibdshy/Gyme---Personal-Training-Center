@@ -1,0 +1,22 @@
+[
+  {
+      "id": "001",
+      "name": "Dumbbelling",
+      "image": "https://moryphea.sirv.com/assignment10/service-1.jpg",
+      "content": "Avoids pleasure itself, because it is plea sure but because those who do not know how to pursue pleasure rationally"
+  },
+  {
+      "id": "002",
+      "name": "Cycling GYM",
+      "image": "https://moryphea.sirv.com/assignment10/service-2.jpg",
+      "content": "Avoids pleasure itself because it is plea sure but because those who do not know how to pursue pleasure rationally."
+  },
+  {
+      "id": "003",
+      "name": "Grid Training",
+      "image": "https://moryphea.sirv.com/assignment10/service-3.jpg",
+      "content": "Avoids pleasure itself because it is plea sure but because those who do not know how to pursue pleasure rationally."
+  }
+]
+
+
