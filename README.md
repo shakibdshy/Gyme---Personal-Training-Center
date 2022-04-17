@@ -1,6 +1,6 @@
 # **Gyme - Personal Training Center**
 
-Live [Project Link](https://github.com/facebook/create-react-app).
+# FireBase Live [Project Link](https://github.com/facebook/create-react-app).
 
 # *List Of Component*
 
@@ -12,3 +12,6 @@ Live [Project Link](https://github.com/facebook/create-react-app).
 - **Checkout Component**
 - **404 Not Found Page Component**
 - **Footer Component**
+- **React-Bootstrap**
+- **React-Icon**
+- **React Firebase Hook**
