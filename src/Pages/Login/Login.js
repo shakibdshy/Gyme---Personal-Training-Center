@@ -1,24 +1,26 @@
-import React, { useRef} from "react";
+import React, { useRef } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import auth from "../../utils/firebase.init";
 import SocialLogin from "./SocialLogin";
 
 const Login = () => {
-  const emailRef = useRef('');
-  const passwordRef = useRef('');
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
   const navigate = useNavigate();
 
-  const [
-    signInWithEmailAndPassword,
-    user,
-  ] = useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user] =
+    useSignInWithEmailAndPassword(auth);
+
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || '/';
-  
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -26,14 +28,20 @@ const Login = () => {
     const password = passwordRef.current.value;
 
     signInWithEmailAndPassword(email, password);
-  }
+  };
 
   if (user) {
-    navigate(from, { replace: true });    
+    navigate(from, { replace: true });
   }
 
   const navigateRegister = () => {
-    navigate('/register');
+    navigate("/register");
+  };
+
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    alert("Sent email");
   }
 
   return (
@@ -42,10 +50,10 @@ const Login = () => {
         <Row>
           <Col>
             <div className='login-form'>
-                <div className='form-text login-text'>
-                    Do You Have An Account?
-                    <span onClick={navigateRegister}>Sign Up</span>
-                </div>
+              <div className='form-text login-text'>
+                Do You Have An Account?
+                <span onClick={navigateRegister}>Sign Up</span>
+              </div>
               <form onSubmit={handleLogin}>
                 <div className='mb-3'>
                   <label htmlFor='exampleInputEmail1' className='form-label'>
@@ -60,9 +68,6 @@ const Login = () => {
                     placeholder='Enter email'
                     required
                   />
-                  <div id='emailHelp' className='form-text'>
-                    We'll never share your email with anyone else.
-                  </div>
                 </div>
                 <div className='mb-3'>
                   <label htmlFor='exampleInputPassword1' className='form-label'>
@@ -77,7 +82,11 @@ const Login = () => {
                     required
                   />
                   <div className='form-text'>
-                    <Link to='/register'>Forget Password</Link>
+                    <Link
+                      to='/register'
+                      onClick={resetPassword}>
+                      Forget Password
+                    </Link>
                   </div>
                 </div>
                 <button type='submit' className='btn btn-gr-red mt-4'>

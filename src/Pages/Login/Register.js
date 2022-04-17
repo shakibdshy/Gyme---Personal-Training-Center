@@ -1,29 +1,33 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import auth from "../../utils/firebase.init";
 import SocialLogin from "./SocialLogin";
 
 const Register = () => {
-  const [
-    createUserWithEmailAndPassword,
-    user,
-  ] = useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+  const [agree, setAgree] = useState(false);
 
   const nameRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const navigate = useNavigate();
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    console.log(name, email, password);
 
-    createUserWithEmailAndPassword(email, password);
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
   };
 
   const navigateLogin = () => {
@@ -88,8 +92,28 @@ const Register = () => {
                     placeholder='Password'
                     required
                   />
+                  <div id='passwordHelper' className='form-text'>
+                    Please Use at least 6 characters
+                  </div>
                 </div>
-                <button type='submit' className='btn btn-gr-red mt-4'>
+                <div className='form-check mb-4'>
+                  <input
+                    onChange={() => setAgree(!agree)}
+                    className='form-check-input'
+                    type='checkbox'
+                    value=''
+                    id='flexCheckDefault'
+                  />
+                  <label
+                    className={`form-check-label ${agree ? "text-danger" : ""}`}
+                    htmlFor='flexCheckDefault'>
+                    Accept Gyme Terms and Conditions
+                  </label>
+                </div>
+                <button
+                  disabled={!agree}
+                  type='submit'
+                  className='btn btn-gr-red mt-4'>
                   Sign Up
                 </button>
                 <SocialLogin />
