@@ -93,11 +93,11 @@ const Login = () => {
                     required
                   />
                   <div className='form-text'>
-                    <Button
-                      className='btn btn-link'
+                    <span
+                      className='btn-link pointer'
                       onClick={resetPassword}>
                       Forget Password
-                    </Button>
+                    </span>
                   </div>
                 </div>
                 <button type='submit' className='btn btn-gr-red mt-4'  disabled={isLoading}>

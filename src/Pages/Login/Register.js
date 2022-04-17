@@ -7,6 +7,8 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../utils/firebase.init";
 import SocialLogin from "./SocialLogin";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const [createUserWithEmailAndPassword, user] =
@@ -26,9 +28,15 @@ const Register = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    await createUserWithEmailAndPassword(email, password);
-    await updateProfile({ displayName: name });
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    if(email && password && name && agree){
+      await createUserWithEmailAndPassword(email, password);
+      await updateProfile({ displayName: name });
+      toast.success("Successfully Registered");
+      
+    } else {
+      toast.error("Please enter valid details");
+    }
+
   };
 
   const navigateLogin = () => {
