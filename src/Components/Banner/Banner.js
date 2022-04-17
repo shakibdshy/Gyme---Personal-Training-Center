@@ -17,8 +17,8 @@ const Banner = () => {
             <div className='banner-content'>
               <span>Welcome To Gymee</span>
               <h2>Making Different From Other Builds Perferct Health</h2>
-              <Link to='/login' className='btn btn-gr-red'>
-                join with me
+              <Link to='/about' className='btn btn-gr-red'>
+                About Me
                 <FaAngleDoubleRight />
               </Link>
             </div>

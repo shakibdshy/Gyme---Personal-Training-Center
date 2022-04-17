@@ -1,17 +1,14 @@
 import React, { useRef } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebook, FaGithub } from "react-icons/fa";
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from "../../utils/firebase.init";
+import SocialLogin from "./SocialLogin";
 
 const Register = () => {
   const [
     createUserWithEmailAndPassword,
     user,
-    loading,
-    error,
   ] = useCreateUserWithEmailAndPassword(auth);
 
   const nameRef = useRef("");
@@ -95,22 +92,7 @@ const Register = () => {
                 <button type='submit' className='btn btn-gr-red mt-4'>
                   Sign Up
                 </button>
-                <div className='divider'>
-                  <hr />
-                  <span>OR</span>
-                  <hr />
-                </div>
-                <div className='social-login'>
-                  <Button to='/' className='google'>
-                    <FcGoogle />
-                  </Button>
-                  <Button to='/' className='fb'>
-                    <FaFacebook />
-                  </Button>
-                  <Button to='/' className='github'>
-                    <FaGithub />
-                  </Button>
-                </div>
+                <SocialLogin />
               </form>
             </div>
           </Col>

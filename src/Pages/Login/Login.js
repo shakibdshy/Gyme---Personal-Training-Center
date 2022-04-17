@@ -1,10 +1,9 @@
 import React, { useRef} from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebook, FaGithub } from "react-icons/fa";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../utils/firebase.init";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
   const emailRef = useRef('');
@@ -14,8 +13,6 @@ const Login = () => {
   const [
     signInWithEmailAndPassword,
     user,
-    loading,
-    error,
   ] = useSignInWithEmailAndPassword(auth);
 
   const location = useLocation();
@@ -86,22 +83,7 @@ const Login = () => {
                 <button type='submit' className='btn btn-gr-red mt-4'>
                   Log in
                 </button>
-                <div className="divider">
-                    <hr />
-                    <span>OR</span>
-                    <hr />
-                </div>
-                <div className='social-login'>
-                    <Button to='/' className='google'>
-                        <FcGoogle />
-                    </Button>
-                    <Button to='/' className='fb'>
-                        <FaFacebook />
-                    </Button>
-                    <Button to='/' className='github'>
-                        <FaGithub />
-                    </Button>
-                </div>
+                <SocialLogin />
               </form>
             </div>
           </Col>
