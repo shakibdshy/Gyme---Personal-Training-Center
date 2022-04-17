@@ -4,7 +4,7 @@ import { FaFacebook, FaGithub } from "react-icons/fa";
 import { Button } from "react-bootstrap";
 import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../utils/firebase.init";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
   const navigate = useNavigate();
