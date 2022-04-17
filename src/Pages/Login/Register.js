@@ -12,7 +12,6 @@ const Register = () => {
   const [createUserWithEmailAndPassword, user] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile] = useUpdateProfile(auth);
-  const [isLoading, setIsLoading] = useState(false);
 
   const [agree, setAgree] = useState(false);
 
@@ -23,7 +22,6 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
@@ -31,7 +29,6 @@ const Register = () => {
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsLoading(false);
   };
 
   const navigateLogin = () => {
