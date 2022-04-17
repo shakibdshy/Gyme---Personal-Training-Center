@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import React, { useRef, useState } from "react";
+import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useSendPasswordResetEmail,
@@ -12,6 +12,7 @@ const Login = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [signInWithEmailAndPassword, user] =
     useSignInWithEmailAndPassword(auth);
@@ -22,12 +23,16 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    setIsLoading(false);
   };
 
   if (user) {
@@ -89,8 +94,8 @@ const Login = () => {
                     </Link>
                   </div>
                 </div>
-                <button type='submit' className='btn btn-gr-red mt-4'>
-                  Log in
+                <button type='submit' className='btn btn-gr-red mt-4'  disabled={isLoading}>
+                  {isLoading ? <Spinner as='span' role='status' aria-hidden='true' animation='border' /> : 'Log in'}                  
                 </button>
                 <SocialLogin />
               </form>
