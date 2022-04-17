@@ -25,7 +25,7 @@ const Service = () => {
             <div className='section-title-center text-center pt-60'>
               <hr className='bg-red' />
               <h2 className='white-color'>
-                We Offer Exclusive Services <br />
+                Exclusive Services <br />
                 For Build Health
               </h2>
               <span>Services</span>
@@ -43,6 +43,9 @@ const Service = () => {
                   <div className='service-content service-content-2 text-center white-color'>
                     <div className='service-icon'>
                       <FaDumbbell />
+                    </div>
+                    <div className="service-price">
+                      $<span>{service.price}</span>
                     </div>
                     <h3 className='white-color'>{service.name}</h3>
                     <p>

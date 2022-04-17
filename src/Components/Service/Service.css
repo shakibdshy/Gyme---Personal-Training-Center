@@ -40,7 +40,6 @@
 }
 .service-item .service-content h3 {
   font-size: 30px;
-  padding-top: 35px;
 }
 .service-item .service-content a {
   font-size: 14px;
@@ -152,4 +151,15 @@
 
 .service-icon {
   font-size: 50px;
+}
+
+.service-price {
+  font-size: 40px;
+  color: #e63a34;
+  font-family: "Teko", sans-serif;
+  font-weight: 700;
+}
+
+.service-item-2:hover .service-price {
+  color: #fff;
 }
