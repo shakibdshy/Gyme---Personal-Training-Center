@@ -1,10 +1,15 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook, FaGithub } from "react-icons/fa";
 
 const Register = () => {
+  const navigate = useNavigate();
+
+  const navigateLogin = () => {
+    navigate('/login');
+  }
   return (
     <section className='login-section'>
       <Container>
@@ -13,7 +18,7 @@ const Register = () => {
             <div className='login-form'>
               <div className='form-text login-text'>
                 Have An Account?
-                <Link to='/login'>Sign In</Link>
+                <span onClick={navigateLogin}>Sign In</span>
               </div>
               <form>
                 <div className='mb-3'>

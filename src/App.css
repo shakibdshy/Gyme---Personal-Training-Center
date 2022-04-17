@@ -263,10 +263,11 @@ a {
   margin-bottom: 30px;
 }
 
-.login-text a{
+.login-text span{
   font-size: 18px;
   font-family: "Teko", sans-serif;
   font-weight: 600;
   color: #e63a34;
   margin-left: 5px;
+  cursor: pointer;
 }
