@@ -1,6 +1,6 @@
 import React, { useRef} from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook, FaGithub } from "react-icons/fa";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
@@ -18,6 +18,11 @@ const Login = () => {
     error,
   ] = useSignInWithEmailAndPassword(auth);
 
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
+  
+
   const handleLogin = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
@@ -27,7 +32,7 @@ const Login = () => {
   }
 
   if (user) {
-    navigate("/home");
+    navigate(from, { replace: true });    
   }
 
   const navigateRegister = () => {

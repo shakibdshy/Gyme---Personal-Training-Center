@@ -1,15 +1,16 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import Header from './Layout/Header/Header';
-import { Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home/Home';
-import About from './Pages/About/About';
-import Blog from './Pages/Blog/Blog';
-import Notfound from './Pages/Error/Notfound';
-import Checkout from './Pages/Checkout/Checkout';
-import Login from './Pages/Login/Login';
-import Register from './Pages/Register/Register';
-import Footer from './Layout/Footer/Footer';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Header from "./Layout/Header/Header";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home/Home";
+import About from "./Pages/About/About";
+import Blog from "./Pages/Blog/Blog";
+import Notfound from "./Pages/Error/Notfound";
+import Checkout from "./Pages/Checkout/Checkout";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Login/Register";
+import Footer from "./Layout/Footer/Footer";
+import RequireAuth from "./Pages/Login/RequireAuth";
 
 function App() {
   return (
@@ -20,7 +21,14 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/blog' element={<Blog />} />
-        <Route path='/checkout' element={<Checkout />} />
+        <Route
+          path='/checkout'
+          element={
+            <RequireAuth>
+              <Checkout />
+            </RequireAuth>
+          }
+        />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='*' element={<Notfound />} />
