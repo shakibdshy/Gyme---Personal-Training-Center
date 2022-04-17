@@ -1,12 +1,14 @@
 import React, { useRef, useState } from "react";
-import { Col, Container, Row, Spinner } from "react-bootstrap";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import auth from "../../utils/firebase.init";
 import SocialLogin from "./SocialLogin";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const emailRef = useRef("");
@@ -45,8 +47,12 @@ const Login = () => {
 
   const resetPassword = async () => {
     const email = emailRef.current.value;
-    await sendPasswordResetEmail(email);
-    alert("Sent email");
+    if(email){
+      await sendPasswordResetEmail(email);
+      toast.success("Password reset email sent successfully");
+    } else {
+      toast.error("Please enter email");
+    }
   }
 
   return (
@@ -87,16 +93,17 @@ const Login = () => {
                     required
                   />
                   <div className='form-text'>
-                    <Link
-                      to='/register'
+                    <Button
+                      className='btn btn-link'
                       onClick={resetPassword}>
                       Forget Password
-                    </Link>
+                    </Button>
                   </div>
                 </div>
                 <button type='submit' className='btn btn-gr-red mt-4'  disabled={isLoading}>
-                  {isLoading ? <Spinner as='span' role='status' aria-hidden='true' animation='border' /> : 'Log in'}                  
+                  {isLoading ? <Spinner as='span' role='status' aria-hidden='true' animation='border' /> : 'Log in'}
                 </button>
+                <ToastContainer />
                 <SocialLogin />
               </form>
             </div>

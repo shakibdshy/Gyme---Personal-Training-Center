@@ -27,7 +27,7 @@ const Header = () => {
               <NavLink className='nav-link' to='/'>Home</NavLink>
               <NavLink className='nav-link' to='/about'>About Me</NavLink>
               <NavLink className='nav-link' to='/blog'>Blog</NavLink>
-              <NavLink className='nav-link' to='/checkout'>Checkout</NavLink>
+              {user && <NavLink className='nav-link' to='/checkout'>Checkout</NavLink>}
             </Nav>
           </Navbar.Collapse>          
           {
