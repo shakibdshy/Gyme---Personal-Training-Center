@@ -3,18 +3,31 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook, FaGithub } from "react-icons/fa";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../utils/firebase.init";
 
 const Login = () => {
   const emailRef = useRef('');
   const passwordRef = useRef('');
   const navigate = useNavigate();
 
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    console.log(email, password);
+    signInWithEmailAndPassword(email, password);
+  }
+
+  if (user) {
+    navigate("/home");
   }
 
   const navigateRegister = () => {
