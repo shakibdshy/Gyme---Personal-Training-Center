@@ -54,7 +54,7 @@ const Register = () => {
                     placeholder='Password'
                   />
                 </div>
-                <button type='submit' className='btn btn-gr-red'>
+                <button type='submit' className='btn btn-gr-red mt-4'>
                   Sign Up
                 </button>
                 <div className='divider'>

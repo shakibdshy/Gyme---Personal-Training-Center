@@ -42,7 +42,7 @@ const Login = () => {
                     placeholder='Password'
                   />
                 </div>
-                <button type='submit' className='btn btn-gr-red'>
+                <button type='submit' className='btn btn-gr-red mt-4'>
                   Log in
                 </button>
                 <div className="divider">
