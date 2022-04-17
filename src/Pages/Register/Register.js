@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook, FaGithub } from "react-icons/fa";
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from "../../utils/firebase.init";
 
 const Register = () => {
+  const [
+    createUserWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useCreateUserWithEmailAndPassword(auth);
+
+  const nameRef = useRef("");
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
   const navigate = useNavigate();
 
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = nameRef.current.value;
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    console.log(name, email, password);
+
+    createUserWithEmailAndPassword(email, password);
+  };
+
   const navigateLogin = () => {
-    navigate('/login');
+    navigate("/login");
+  };
+
+  if (user) {
+    navigate("/home");
   }
+
   return (
     <section className='login-section'>
       <Container>
@@ -20,17 +47,19 @@ const Register = () => {
                 Have An Account?
                 <span onClick={navigateLogin}>Sign In</span>
               </div>
-              <form>
+              <form onSubmit={handleRegister}>
                 <div className='mb-3'>
                   <label htmlFor='registerFirstName' className='form-label'>
                     First Name
                   </label>
                   <input
+                    ref={nameRef}
                     type='text'
                     className='form-control'
                     id='registerFirstName'
                     aria-describedby='emailHelp'
                     placeholder='First Name'
+                    required
                   />
                 </div>
                 <div className='mb-3'>
@@ -38,11 +67,13 @@ const Register = () => {
                     Email address
                   </label>
                   <input
+                    ref={emailRef}
                     type='email'
                     className='form-control'
                     id='registerEmail'
                     aria-describedby='emailHelp'
                     placeholder='Enter email'
+                    required
                   />
                   <div id='emailHelp1' className='form-text'>
                     We'll never share your email with anyone else.
@@ -53,10 +84,12 @@ const Register = () => {
                     Password
                   </label>
                   <input
+                    ref={passwordRef}
                     type='password'
                     className='form-control'
                     id='registerPassword'
                     placeholder='Password'
+                    required
                   />
                 </div>
                 <button type='submit' className='btn btn-gr-red mt-4'>
