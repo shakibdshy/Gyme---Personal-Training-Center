@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
@@ -16,12 +16,13 @@ const Login = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
-  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);    
-  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);  
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
   if (error) {
     toast.error("Please enter valid details");
-  }  
+  }
 
   const from = location.state?.from?.pathname || "/";
 
@@ -37,9 +38,11 @@ const Login = () => {
     setIsLoading(false);
   };
 
-  if (user) {
-    navigate(from, { replace: true });
-  }
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user]);
 
   const navigateRegister = () => {
     navigate("/register");
@@ -98,7 +101,7 @@ const Login = () => {
                     </span>
                   </div>
                 </div>
-                <p style={{ color: 'red' }}>{error?.message}</p>
+                <p style={{ color: "red" }}>{error?.message}</p>
                 <button
                   type='submit'
                   className='btn btn-gr-red mt-4'
