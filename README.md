@@ -15,3 +15,4 @@
 - **React-Bootstrap**
 - **React-Icon**
 - **React Firebase Hook**
+- **react-toastify**
