@@ -16,3 +16,4 @@
 - **React-Icon**
 - **React Firebase Hook**
 - **react-toastify**
+- **Sweetalart2-react-content**

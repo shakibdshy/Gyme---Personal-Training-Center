@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const Checkout = () => {
+  const [agree, setAgree] = useState(false);
+
+  const handelButtonClick = () => {
+    Swal.fire("Good job!", "thank you for the booking.", "success");
+  };
   return (
     <section className='login-section'>
       <Container>
@@ -41,7 +48,6 @@ const Checkout = () => {
                     </div>
                   </div>
                 </div>
-
                 <div className='mb-3'>
                   <label htmlFor='email' className='form-label'>
                     Email
@@ -94,18 +100,23 @@ const Checkout = () => {
                 </div>
                 <div className='form-check mb-4'>
                   <input
+                    onChange={() => setAgree(!agree)}
                     className='form-check-input'
                     type='checkbox'
                     value=''
                     id='flexCheckDefault'
                   />
                   <label
-                    className='form-check-label'
+                    className={`form-check-label ${agree ? "text-danger" : ""}`}
                     htmlFor='flexCheckDefault'>
                     Accept Gyme Terms and Conditions
                   </label>
                 </div>
-                <button type='submit' className='btn btn-gr-red mt-4'>
+                <button
+                  disabled={!agree}
+                  onClick={() => handelButtonClick()}
+                  type='submit'
+                  className='btn btn-gr-red mt-4'>
                   Check Out
                 </button>
               </form>
