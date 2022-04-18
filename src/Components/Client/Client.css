@@ -1,0 +1,10 @@
+.client-section {
+    padding: 80px 0;
+    background: #e63a34;
+}
+
+.client-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
