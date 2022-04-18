@@ -41,17 +41,18 @@
 .service-item .service-content h3 {
   font-size: 30px;
 }
-.service-item .service-content a {
+.service-item .service-content button {
   font-size: 14px;
   font-weight: 700;
   margin-top: 15px;
+  border: none;
   text-transform: uppercase;
   display: block;
   position: relative;
   z-index: 11;
   transition: 0.3s ease-out;
 }
-.service-item .service-content a:hover {
+.service-item .service-content button:hover {
   letter-spacing: 2px;
 }
 .service-item .service-number span {
@@ -119,7 +120,7 @@
   opacity: 0;
   transition: 0.3s ease-out;
 }
-.service-item-2 .service-content-2 a {
+.service-item-2 .service-content-2 button {
   position: relative;
   bottom: 56px;
   width: 60px;
@@ -140,7 +141,7 @@
   opacity: 1;
   padding-bottom: 30px;
 }
-.service-item-2 .service-content-2:hover a {
+.service-item-2 .service-content-2:hover button {
   background-color: #333333;
   color: #fff;
   bottom: 0;

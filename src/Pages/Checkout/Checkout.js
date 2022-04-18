@@ -43,6 +43,19 @@ const Checkout = () => {
                 </div>
 
                 <div className='mb-3'>
+                  <label htmlFor='email' className='form-label'>
+                    Email
+                  </label>
+                  <input
+                    type='email'
+                    className='form-control'
+                    id='email'
+                    aria-describedby='email'
+                    placeholder='Your Email Address'
+                    required
+                  />
+                </div>
+                <div className='mb-3'>
                   <label htmlFor='address' className='form-label'>
                     Address
                   </label>

@@ -4,17 +4,22 @@ import {
   FaDumbbell,
 } from "react-icons/fa";
 import ServiceBG from "../../images/service-bg-1.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Service.css";
 
 const Service = () => {
   const [Services, setService] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("service.json")
       .then((response) => response.json())
       .then((json) => setService(json));
   }, []);
+
+  const navigateCheckout = (id) => {
+    navigate(`/checkout/${id}`);
+  }
   return (
     <section
       className='service-area'
@@ -53,9 +58,9 @@ const Service = () => {
                       because those who do not know how to pursue pleasure
                       rationally
                     </p>
-                    <Link to='/checkout'>
+                    <button onClick={() => navigateCheckout(service.id)}>                    
                       <FaAngleDoubleRight />
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
