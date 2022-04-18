@@ -17,7 +17,7 @@ const Blog = () => {
                   Authorization is the process of verifying the identity of a
                   user.
                 </p>
-                <table class='table table-responsive'>
+                <table className='table table-responsive'>
                   <thead>
                     <tr>
                       <th>
@@ -57,8 +57,8 @@ const Blog = () => {
             <div className='card'>
               <div className='card-body'>
                 <h3 className='card-title'>
-                  2. Why are you using firebase? What other options do you have to
-                  implement authentication?
+                  2. Why are you using firebase? What other options do you have
+                  to implement authentication?
                 </h3>
                 <p className='card-text'>
                   Google Firebase offers to many features, it is one of the best
@@ -88,8 +88,8 @@ const Blog = () => {
             <div className='card'>
               <div className='card-body'>
                 <h3 className='card-title'>
-                  3. What other services does <code>firebase</code> provide other
-                  than authentication
+                  3. What other services does <code>firebase</code> provide
+                  other than authentication
                 </h3>
                 <p className='card-text'>
                   There are many services which are provides Firebase without

@@ -22,14 +22,14 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/blog' element={<Blog />} />
         <Route
-          path='/checkout'
+          path='/checkout/:checkoutId'
           element={
             <RequireAuth>
               <Checkout />
             </RequireAuth>
           }
         />
-        <Route path='/checkout/:checkoutId' element={<Checkout />} />
+        {/* <Route path='/checkout/:checkoutId' element={<Checkout />} /> */}
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='*' element={<Notfound />} />
